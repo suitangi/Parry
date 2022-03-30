@@ -29,5 +29,6 @@ In the begining, just a dash, but can be upgraded:
 - Longer range grapple
 - Leave a trail of traps
 - Decreased cooldown etc.
+- Go 3 seconds into the past
 
 
