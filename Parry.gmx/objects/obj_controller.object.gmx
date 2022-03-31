@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>time_speed = 1;
 roomSpeed = 60;
+room_speed = roomSpeed;
 
 accel = false;
 keyUp = ord('W');
