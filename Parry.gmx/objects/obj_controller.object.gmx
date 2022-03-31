@@ -27,6 +27,14 @@
             <kind>1</kind>
             <string>time_speed = 1;
 roomSpeed = 60;
+
+accel = false;
+keyUp = ord('W');
+keyDown = ord('S');
+keyRight = ord('D');
+keyLeft = ord('A');
+
+
 </string>
           </argument>
         </arguments>
