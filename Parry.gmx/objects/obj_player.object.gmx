@@ -43,6 +43,8 @@ dashBaseDeccel = 2;
 dashBaseAccel = 3;
 dashAccelAmount = 0;
 dashSpeed = 30;
+
+image_speed = 0.25;
 </string>
           </argument>
         </arguments>
@@ -93,19 +95,21 @@ up = keyboard_check(obj_controller.keyUp);
 left = keyboard_check(obj_controller.keyLeft);
 down = keyboard_check(obj_controller.keyDown);
 
-if (dashable &amp;&amp; mouse_check_button_pressed(mb_right)) {
+if (dashable &amp;&amp; keyboard_check(vk_shift)) {
     show_debug_message('test');
     dashing = true;
     dashAccel = true;
-    direction = point_direction(x, y, mouse_x, mouse_y);
+    //direction = point_direction(x, y, mouse_x, mouse_y);
     dashable = false;
     alarm[0] = dashCD * room_speed;
     dashAccelAmount = 0;
+    //obj_camera.shake = 6;
 }
 
 accel = false;
 if (!dashing) {
     if (right) {
+        image_xscale = -1;
         accel = true;
         if (up &amp;&amp; !down) {
             direction = 45;
@@ -117,6 +121,7 @@ if (!dashing) {
             direction = 0;
         }
     } else if (left) {
+        image_xscale = 1;
         accel = true;
         if (up &amp;&amp; !down) {
             direction = 135;
@@ -139,6 +144,8 @@ if (!dashing) {
     }
     
     if (accel) {
+        if (sprite_index != spr_playerWalk)
+            sprite_index = spr_playerWalk;
         if (speed &lt; moveSpeed) {
             accelAmount += baseAccel;
             speed += accelAmount;
@@ -146,6 +153,8 @@ if (!dashing) {
             speed = moveSpeed;
         }
     } else {
+        if (sprite_index != spr_playerIdle)
+                sprite_index = spr_playerIdle;
         if (speed &gt; 0) {
             speed -= accelAmount;
             if (accelAmount &lt;= 0)
