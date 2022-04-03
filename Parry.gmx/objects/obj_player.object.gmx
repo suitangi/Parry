@@ -152,6 +152,7 @@ if (!dashing) {
         } else {
             speed = moveSpeed;
         }
+        image_speed = 0.5;
     } else {
         if (sprite_index != spr_playerIdle)
                 sprite_index = spr_playerIdle;
@@ -166,6 +167,7 @@ if (!dashing) {
         } else {
             speed = 0;
         }
+        image_speed = 0.25;
     }
     
     if (speed &gt; moveSpeed)
